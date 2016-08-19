@@ -1,5 +1,13 @@
 gunicorn==19.6.0
 dj-static==0.0.6
+vobject==0.9.2
+simplejson==3.8.2
+geocoder==1.15.1
+functools32==3.2.3.post2
+jsonschema==2.5.1
+mapbox==0.9.0
+address==0.1.1
+django-braces==1.9.0
 elasticsearch==1.6.0
 Jinja2==2.7.3
 pytz
@@ -13,7 +21,8 @@ requests_toolbelt==0.6.0
 git+https://github.com/rosskarchner/govdelivery.git#egg=govdelivery
 icalendar==3.9.0
 django-localflavor==1.1
-wagtail==1.3
+wagtail==1.5.2
+html5lib==0.999999
 MySQL-python==1.2.5
 django-extensions==1.5.5
 boto==2.38.0
@@ -29,11 +38,4 @@ argparse==1.3.0
 suds==0.4
 lxml==3.6.0
 pbr==1.9.1
-vobject==0.9.2
-simplejson==3.8.2
-geocoder==1.15.1
-functools32==3.2.3.post2
-jsonschema==2.5.1
-mapbox==0.9.0
-address==0.1.1
-django-braces==1.9.0
+django-compressor==2.0
