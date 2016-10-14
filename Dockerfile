@@ -4,19 +4,13 @@ MAINTAINER Vic Kumar (vickumar@gmail.com)
 
 ENV PYTHONUNBUFFERED 1
 
-RUN npm install -g grunt
-RUN npm install -g gulp
-RUN npm install -g bower
-RUN npm install -g less
-RUN npm install -g protractor
+RUN npm install -g grunt gulp bower less protractor
 
 RUN apt-get update
 RUN apt-get install -y git git-core python-dev libmysqlclient-dev mysql-client python-yaml vim
-RUN mkdir -p /requirements
-RUN mkdir -p /apps
-RUN mkdir -p /code
-RUN mkdir -p /collectstatic
-
+RUN mkdir -p /pip /requirements /apps /code /collectstatic /root
+RUN echo "{ \"allow_root\": true }" >/root/.bowerrc
+ 
 ENV AGREEMENT_DB_GIT "https://github.cfpb.gov/CFPB/agreement_database.git"
 ENV CCDB_GIT "https://github.cfpb.gov/CCDB4/CCDB-content.git"
 ENV COLLEGE_COSTS_GIT "https://github.com/cfpb/college-costs"
@@ -39,7 +33,6 @@ ENV TAX_TIME_SAVING_GIT "https://github.com/cfpb/tax-time-saving"
 WORKDIR /requirements
 ADD . /requirements/
 
-RUN mkdir /pip
 RUN curl https://bootstrap.pypa.io/get-pip.py -o /pip/get-pip.py
 RUN python /pip/get-pip.py
 RUN pip install -r /requirements/requirements.txt
